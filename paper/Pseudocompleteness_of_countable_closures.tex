@@ -1,0 +1,176 @@
+\documentclass{amsart}
+
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\one}{\mathbf{1}}
+
+\begin{document}
+
+\title[Pseudocompleteness of countable closures]{Pseudocompleteness of countable closures in spaces of continuous functions}
+
+\author{Lucas Alves de Almeida}
+\email{lucasderiva8x@gmail.com}
+
+\date{11 Oct.\ 2026}
+
+\subjclass[2020]{54C35; 54E52; 54G10}
+
+\keywords{Pointwise convergence; pseudocompleteness; P-space; closed separable subspace; topological group}
+
+\begin{abstract}
+We answer Question~4.8 of Dow and Tkachuk affirmatively in ZFC: if the closure of every countable subset of $C_p(X)$ is pseudocomplete, then the Tychonoff space $X$ is a $P$-space. More precisely, every non-$P$-space $X$ admits a closed separable metrizable linear subspace of $C_p(X)$ that is not pseudocomplete. The proof interpolates sequences at levels tending to zero: finitely supported sequences give continuous functions, whereas the constant sequence yields the discontinuous characteristic function of the complement of a non-open zero set. Coordinate evaluation helps make the interpolation image closed, and the Aarts--Lutzer characterization supplies the contradiction.
+\end{abstract}
+
+\maketitle
+
+\section{The result and the argument}
+
+All spaces considered below are Tychonoff. We give $C_p(X)=C(X,\R)$ the topology inherited from $\R^X$, and write $\N=\{1,2,\ldots\}$. A \emph{$P$-space} is a space in which every countable intersection of open sets is open.
+
+Dow and Tkachuk \cite[Question~4.8]{DT} ask whether pseudocompleteness of the closure of every countable subset of $C_p(X)$ forces $X$ to be a $P$-space. Their Theorem~3.14 yields pseudocompleteness of $C_p(X)$ from this hypothesis; the conclusion about $X$ requires an additional argument. We prove the following stronger obstruction statement.
+
+\begin{theorem}\label{thm:main}
+If $X$ is not a $P$-space, then $C_p(X)$ contains a closed separable metrizable linear subspace which is not pseudocomplete.
+\end{theorem}
+
+\begin{corollary}\label{cor:main}
+If $\overline{A}^{\,C_p(X)}$ is pseudocomplete for every countable $A\subseteq C_p(X)$, then $X$ is a $P$-space.
+\end{corollary}
+
+The key idea is to encode a sequence $a$ by a function satisfying $T(a)(x_n)=a_n$, using linear interpolation at levels $t_n\to 0$. Finite support makes the interpolant continuous at zero. In contrast, the constant sequence gives the characteristic function of $X\setminus Z$, which is discontinuous. Coordinate evaluation provides a continuous left inverse, and the interpolation image is closed. Pseudocompleteness would force the constant sequence into the same domain as the finitely supported sequences, yielding the contradiction.
+
+\section{The completeness obstruction}
+
+We use pseudocompleteness in Oxtoby's sense \cite{O}, as in \cite[Section~2.1]{AL} and \cite[Section~2]{DT}. A sequence $(\mathcal{B}_n)$ of $\pi$-bases witnesses pseudocompleteness if, whenever $U_n\in\mathcal{B}_n$ and $\overline{U_{n+1}}\subseteq U_n$ for every $n$, the intersection $\bigcap_{n\geq 1} U_n$ is nonempty. Here a $\pi$-base consists of nonempty open sets, and every nonempty open set contains one of its members.
+
+\begin{lemma}\label{lem:subgroup}
+A dense pseudocomplete additive subgroup of $\R^{\N}$ is equal to $\R^{\N}$.
+\end{lemma}
+
+\begin{proof}
+Let $G$ be such a subgroup. By \cite[Section~2.4, Corollary, p.~4]{AL}, a metrizable pseudocomplete space contains a dense completely metrizable subspace; apply this to $G$ and take $D\subseteq G$ with this property. Since $D$ is dense in $G$ and $G$ is dense in $\R^{\N}$, $D$ is dense in $\R^{\N}$ as well. A completely metrizable subspace of a metrizable space is a $G_\delta$ subset of that space \cite[Theorem~4.3.24]{E}. Thus $D$ is a dense $G_\delta$ in the ambient product $\R^{\N}$, not merely in $G$. (For metrizable spaces, complete metrizability is equivalent to \v{C}ech-completeness \cite[Theorem~4.3.26]{E}, so this agrees with the formulation of the characterization in \cite[Section~2]{DT}.)
+
+Fix an arbitrary $a\in\R^{\N}$. Translation is a homeomorphism of $\R^{\N}$, so $a+D$ is another dense $G_\delta$ subset. Since $\R^{\N}$ is completely metrizable, the Baire category theorem gives $D\cap(a+D)\neq\emptyset$. Hence $d_1=a+d_2$ for some $d_1,d_2\in D$, and $a=d_1-d_2\in G$. Since $a$ was arbitrary, $G=\R^{\N}$.
+\end{proof}
+
+The same proof applies to a dense pseudocomplete subgroup of any completely metrizable topological group. Only the additive version above is needed here.
+
+\section{The closed interpolation subspace}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+A Tychonoff space is a $P$-space precisely when all its zero sets are open; a proof is recalled in Section~\ref{sec:zero}. Choose a continuous $f\colon X\to[0,1]$ such that $Z=f^{-1}(\{0\})$ is not open. Positive values in $f(X)$ occur arbitrarily close to zero. Otherwise $Z=f^{-1}([0,\varepsilon))$ for some $\varepsilon>0$, which would make $Z$ open.
+
+Choose $x_n\in X$ so that, with $t_n=f(x_n)$,
+\[
+0<t_{n+1}<\frac{t_n}{2} \qquad (n\geq 1).
+\]
+Then $t_n\to 0$ and the $x_n$ are distinct. No convergence of $(x_n)$ in $X$ is needed.
+
+For $a=(a_n)_{n\in\N}\in\R^{\N}$, we construct $u_a\colon[0,1]\to\R$ by linear interpolation between the prescribed values $u_a(t_n)=a_n$, setting $u_a(0)=0$:
+\[
+u_a(t)=
+\begin{cases}
+0, & t=0,\\[2pt]
+a_1, & t_1\leq t\leq 1,\\[4pt]
+\dfrac{t-t_{n+1}}{t_n-t_{n+1}}\,a_n+\dfrac{t_n-t}{t_n-t_{n+1}}\,a_{n+1}, & t_{n+1}\leq t\leq t_n \quad (n\geq 1).
+\end{cases}
+\]
+The pieces agree at their common endpoints and cover $(0,1]$; moreover, $u_a(t_n)=a_n$ for every $n$. The function $u_a$ is continuous on $(0,1]$.
+
+For finitely supported $a$, the function $u_a$ vanishes on a neighborhood of zero and is therefore continuous on all of $[0,1]$.
+
+Define
+\[
+T\colon\R^{\N}\to\R^X,\quad T(a)=u_a\circ f,\qquad
+P\colon\R^X\to\R^{\N},\quad P(g)=\bigl(g(x_n)\bigr)_{n\in\N}.
+\]
+The map $T$ is linear. For each fixed $x\in X$, the $x$-coordinate of $T(a)$ is either zero or a fixed linear combination of at most two coordinates of $a$; hence $T$ is continuous for the product topologies. The evaluation map $P$ is continuous, and $P(T(a))=a$. Thus $T$ is a homeomorphism onto its image, with inverse the restriction of $P$. Moreover,
+\[
+L:=T(\R^{\N})=\{g\in\R^X : T(P(g))=g\}
+\]
+is closed in $\R^X$, since it is the equalizer of two continuous maps into a Hausdorff space.
+
+Let $\Q^{(\N)}$ denote the set of finitely supported rational sequences, and set $A=T(\Q^{(\N)})$. This set is countable, and the finite-support property above gives $A\subseteq C_p(X)$. Since $\Q^{(\N)}$ is dense in $\R^{\N}$ and $T$ is a homeomorphism onto the closed subspace $L$,
+\[
+\overline{A}^{\,\R^X}=L.
+\]
+Because $C_p(X)$ has the subspace topology inherited from $\R^X$, it follows that
+\[
+F:=\overline{A}^{\,C_p(X)}=L\cap C_p(X).
+\]
+Thus $F$ is closed in $C_p(X)$, separable (since $A$ is countable and dense in $F$), metrizable, and real-linear.
+
+Put
+\[
+G=\{a\in\R^{\N} : T(a)\in C_p(X)\}.
+\]
+Then $T|_G\colon G\to F$ is a homeomorphism, with inverse $P|_F$. Indeed, $P\circ T$ is the identity on $\R^{\N}$ and $T\circ P$ is the identity on $L$. The subspace $G$ is an additive subgroup containing $\Q^{(\N)}$, so it is dense in $\R^{\N}$. Both $G$ and $F$ are metrizable.
+
+Suppose $F$ were pseudocomplete. Then $G$ would also be pseudocomplete, and the lemma would give $G=\R^{\N}$. In particular, the constant sequence $\one=(1,1,\ldots)$ would belong to $G$. By the interpolation construction,
+\[
+T(\one)(x)=
+\begin{cases}
+0, & x\in Z,\\
+1, & x\notin Z.
+\end{cases}
+\]
+Thus continuity of $T(\one)$ would imply that
+\[
+Z=T(\one)^{-1}\bigl((-1/2,1/2)\bigr)
+\]
+is open, a contradiction. Consequently, $F$ is not pseudocomplete.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:main}]
+The set $A$ constructed above is countable and its closure in $C_p(X)$ is $F$. Hence the hypothesis rules out the obstruction in Theorem~\ref{thm:main}.
+\end{proof}
+
+\section{Zero sets and scope}\label{sec:zero}
+
+We recall the zero-set characterization used in the proof. Suppose every zero set in $X$ is open, and let $x\in\bigcap_{n\geq 1}U_n$, where the $U_n$ are open. Complete regularity supplies continuous functions $h_n\colon X\to[0,1]$ such that $h_n(x)=0$ and $h_n=1$ on $X\setminus U_n$. The series
+\[
+h=\sum_{n\geq 1}2^{-n}h_n
+\]
+converges uniformly and defines a continuous real-valued function. Its terms are nonnegative, and any point outside some $U_n$ has a strictly positive $n$th term. Therefore
+\[
+x\in h^{-1}(\{0\})\subseteq\bigcap_{n\geq 1}U_n.
+\]
+By assumption, this zero set is open. Thus every point of $\bigcap_{n\geq 1}U_n$ has an open neighborhood contained in the intersection, so the intersection is open. Conversely, every zero set is a $G_\delta$, proving the criterion. A real-valued zero-set function can be replaced by $|h|/(1+|h|)$ to obtain a function into $[0,1]$ with the same zero set.
+
+Theorem~\ref{thm:main} shows that whenever $X$ is not a $P$-space, a failure of pseudocompleteness can already be witnessed by a closed separable metrizable linear subspace of $C_p(X)$. The argument does not use inheritance of pseudocompleteness by arbitrary closed subspaces: in Corollary~\ref{cor:main} the hypothesis is applied directly to the countable set $A$. Nor does the argument assume functional countability, or settle Question~4.9 of \cite{DT}. All constructions and completeness results used here are in ZFC.
+
+\section*{Disclosure of AI assistance}
+
+This work is AI-assisted. The main idea is due to the author: to answer Question~4.8 by proving the stronger statement of Theorem~\ref{thm:main}, namely that a non-$P$-space $X$ always yields a closed separable metrizable linear subspace of $C_p(X)$ that is not pseudocomplete. ChatGPT (Astra, OpenAI) worked out the details and completed the argument. The author edited the manuscript and checked the literature. Claude Opus~5.5 (Anthropic) assisted with reviewing the proof and typesetting, and produced a Lean~4/Mathlib formalization of Corollary~\ref{cor:main}, which compiles without \texttt{sorry} and uses only Lean's standard axioms; it is available at \url{https://github.com/LucasAlves8Sp/dow-tkachuk-question-4-8}. No costs were incurred beyond the author's existing US\$20 monthly subscriptions to ChatGPT (OpenAI) and Claude (Anthropic). The result has not yet been checked by a human expert and should be regarded as a candidate resolution of the question.
+
+\begin{thebibliography}{9}
+
+\bibitem{AL}
+J.~M. Aarts and D.~J. Lutzer, \emph{Pseudo-completeness and the product of Baire spaces}, Pacific J. Math. \textbf{48} (1973), 1--10.
+
+\bibitem{DT}
+Alan Dow and Vladimir~V. Tkachuk, \emph{Reflecting topological properties in closed separable subspaces}, Eur. J. Math. \textbf{11} (2025), Art. No.~5.
+
+\bibitem{E}
+Ryszard Engelking, \emph{General Topology}, Sigma Series in Pure Mathematics, vol.~6, Heldermann Verlag, 1989.
+
+\bibitem{O}
+J.~C. Oxtoby, \emph{Cartesian products of Baire spaces}, Fund. Math. \textbf{49} (1961), 157--166.
+
+\end{thebibliography}
+
+\end{document}

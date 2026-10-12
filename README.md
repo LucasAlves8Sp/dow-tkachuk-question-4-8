@@ -14,9 +14,12 @@ question from
 
 **Answer: yes, in ZFC.**
 
+> **Status: candidate resolution.** The proof has been machine-checked in Lean 4 (see
+> below) but has **not yet been checked by a human expert**. Feedback is welcome.
+
 | | |
 |---|---|
-| Paper | [`paper/Pseudocompleteness_of_countable_closures.pdf`](paper/Pseudocompleteness_of_countable_closures.pdf) |
+| Paper | [`paper/Pseudocompleteness_of_countable_closures.pdf`](paper/Pseudocompleteness_of_countable_closures.pdf) ([LaTeX source](paper/Pseudocompleteness_of_countable_closures.tex)) |
 | Lean formalization | [`Question48.lean`](Question48.lean) |
 | Verification certificate | [`verification/CERTIFICATE.md`](verification/CERTIFICATE.md) |
 
@@ -113,9 +116,20 @@ and the raw output of the check.
 
 ## Disclosure of AI assistance
 
-The main argument was developed by the author with the assistance of ChatGPT (Astra).
-Editing, verification and the Lean formalization were carried out by the author with the
-assistance of Claude Opus 5.5 (Anthropic).
+This work is **AI-assisted**.
+
+* **Main idea (author, Lucas Alves de Almeida):** answer Question 4.8 by proving the
+  stronger statement that every non-P-space $X$ yields a closed separable metrizable
+  linear subspace of $C_p(X)$ that is not pseudocomplete (Theorem 1.1 of the paper),
+  instead of arguing directly from the hypothesis on countable closures.
+* **ChatGPT (Astra, OpenAI):** worked out the details and completed the argument.
+* **Author:** edited the manuscript and checked the literature.
+* **Claude Opus 5.5 (Anthropic):** assisted with reviewing the proof and typesetting, and
+  produced the Lean 4 / Mathlib formalization in this repository.
+* **Cost:** none beyond the author's existing US$20/month ChatGPT and Claude
+  subscriptions.
+
+The result has not yet been checked by a human expert.
 
 ## References
 
